@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "~/*": [
+        "src/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@actions/*": [
+        "src/data/actions/*"
+      ],
+      "@reducers/*": [
+        "src/data/reducers/*"
+      ],
+      "@stores/*": [
+        "src/data/stores/*"
+      ],
+      "@domain/*": [
+        "src/domain/*"
+      ],
+      "@models/*": [
+        "src/domain/models/*"
+      ],
+      "@dataRepositories/*": [
+        "src/domain/repositories/*"
+      ],
+      "@dataServices/*": [
+        "src/domain/services/*"
+      ],
+      "@infrastructure/*": [
+        "src/infrastructure/*"
+      ],
+      "@components/*": [
+        "src/infrastructure/components/*"
+      ],
+      "@repositories/*": [
+        "src/infrastructure/repositories/*"
+      ],
+      "@services/*": [
+        "src/infrastructure/services/*"
+      ],
+      "@styles/*": [
+        "src/infrastructure/styles/*"
+      ],
+      "@viewmodels/*": [
+        "src/infrastructure/viewmodels/*"
+      ],
+      "@views/*": [
+        "src/infrastructure/views/*"
+      ],
+      "@navigation/*": [
+        "src/navigation/*"
+      ]
+    }
+  },
+  "include": [
+    "vite.config.ts"
+  ]
+}
