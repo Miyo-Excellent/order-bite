@@ -1,20 +1,19 @@
 import { useEffect } from 'react';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useNavigate, useNavigation } from 'react-router-dom';
 import { SplashView } from '@views/splash.view';
 
 export interface SplashViewModelProps {}
 
 export const SplashViewmodel = ({}: SplashViewModelProps) => {
-  const { recipes }: any = useLoaderData();
   const navigate = useNavigate();
+  const navigation = useNavigation();
 
   useEffect(() => {
-    console.log(recipes);
-
+    console.log(navigation);
     setTimeout(() => {
-      navigate('/appetizers');
-    }, 3000);
-  }, []);
+      navigate('/appetizers', { replace: true });
+    }, 2000);
+  }, [navigation]);
 
   return <SplashView />;
 };

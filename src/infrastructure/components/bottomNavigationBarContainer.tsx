@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export interface BottomNavigationBarContainerProps {}
 
 export const BottomNavigationBarContainer = styled.nav<BottomNavigationBarContainerProps>`
-  width: calc(100% - 10px);
+  width: 100%;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.2);
 `;

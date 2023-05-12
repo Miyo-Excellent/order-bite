@@ -1,50 +1,62 @@
 import axios from 'axios';
 import { RecipeModel } from '@models/recipe.model.tsx';
+import { EdamamApiServiceData } from '@dataServices/edamamApi.serviceData';
 
-export class EdamamApiService {
+export interface EdamamApiServiceOptions {
+  readonly appId: string;
+  readonly appKey: string;
+  readonly baseUrl?: string;
+}
+
+export class EdamamApiService implements EdamamApiServiceData {
   private readonly appId: string;
   private readonly appKey: string;
-  private readonly baseUrl: string;
+  private readonly baseUrl?: string;
 
-  constructor() {
-    this.appId = 'your_app_id';
-    this.appKey = 'your_app_key';
-    this.baseUrl = 'https://api.edamam.com/search';
+  constructor({
+    appId,
+    appKey,
+    baseUrl = 'https://api.edamam.com/search'
+  }: EdamamApiServiceOptions) {
+    this.appId = appId;
+    this.appKey = appKey;
+    this.baseUrl = baseUrl;
   }
 
-  async getRecipes(): Promise<RecipeModel[]> {
-    const url = `${this.baseUrl}?q=recipes&app_id=${this.appId}&app_key=${this.appKey}`;
+  getRecipes = async ({ query = 'recipes' } = {}): Promise<RecipeModel[]> => {
+    const url = `${this.baseUrl}?q=${query}&app_id=${this.appId}&app_key=${this.appKey}`;
     return await this.request(url);
-  }
+  };
 
-  async getBreakfasts(): Promise<RecipeModel[]> {
-    const url = `${this.baseUrl}?q=breakfast&app_id=${this.appId}&app_key=${this.appKey}`;
-    return await this.request(url);
-  }
+  getCocktails = async (): Promise<RecipeModel[]> => {
+    return this.getRecipes({ query: 'cocktail' });
+  };
 
-  async getIngredients(query?: string): Promise<string[]> {
-    const url = `https://api.edamam.com/auto-complete?q=${
-      query ? `?q=${query}&` : '&'
-    }limit=10&app_id=${this.appId}&app_key=${this.appKey}`;
-    const response = await axios.get(url);
-    return response.data;
-  }
+  getDrinks = async (): Promise<RecipeModel[]> => {
+    return this.getRecipes({ query: 'drink' });
+  };
 
-  async getDinners(): Promise<RecipeModel[]> {
-    const url = `${this.baseUrl}?q=dinner&app_id=${this.appId}&app_key=${this.appKey}`;
-    return await this.request(url);
-  }
+  getLunches = async (): Promise<RecipeModel[]> => {
+    return this.getRecipes({ query: 'lunch' });
+  };
 
-  async getDesserts(): Promise<RecipeModel[]> {
-    const url = `${this.baseUrl}?q=dessert&app_id=${this.appId}&app_key=${this.appKey}`;
-    return await this.request(url);
-  }
+  getBreakfasts = async (): Promise<RecipeModel[]> => {
+    return this.getRecipes({ query: 'breakfast' });
+  };
 
-  private async request(url: string): Promise<RecipeModel[]> {
+  getDinners = async (): Promise<RecipeModel[]> => {
+    return this.getRecipes({ query: 'dinner' });
+  };
+
+  getDesserts = async (): Promise<RecipeModel[]> => {
+    return this.getRecipes({ query: 'dessert' });
+  };
+
+  private request = async (url: string): Promise<RecipeModel[]> => {
     const response = await axios.get(url);
     const hits = response.data.hits;
     return this.parseRecipes(hits);
-  }
+  };
 
   private parseRecipe(hit: any): RecipeModel {
     const recipe = hit.recipe;

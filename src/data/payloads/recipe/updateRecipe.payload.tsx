@@ -1,7 +1,14 @@
 import { z } from 'zod';
 
 export const UpdateRecipePayload = z.object({
-  to: z.enum(['breakfast', 'dinners', 'desserts']),
+  to: z.enum([
+    'breakfasts',
+    'cocktails',
+    'desserts',
+    'dinners',
+    'drinks',
+    'lunches'
+  ]),
   id: z.string(),
   data: z.object({
     name: z.string().max(60).nonempty(),

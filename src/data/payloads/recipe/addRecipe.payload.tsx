@@ -2,7 +2,14 @@ import { z } from 'zod';
 import { RecipeModel } from '@models/recipe.model.tsx';
 
 export const AddRecipePayload = z.object({
-  to: z.enum(['breakfast', 'dinners', 'desserts']),
+  to: z.enum([
+    'breakfasts',
+    'cocktails',
+    'desserts',
+    'dinners',
+    'drinks',
+    'lunches'
+  ]),
   data: RecipeModel
 });
 

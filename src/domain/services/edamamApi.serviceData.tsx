@@ -3,13 +3,14 @@ import { type RecipeModel } from '@models/recipe.model.tsx';
 export interface EdamamApiServiceData {
   readonly appId: string;
   readonly appKey: string;
-  readonly baseUrl: string;
+  readonly baseUrl?: string;
 
-  getRecipes(): Promise<RecipeModel[]>;
+  getRecipes(params?: { query?: string }): Promise<RecipeModel[]>;
+  getCocktails(): Promise<RecipeModel[]>;
+  getDrinks(): Promise<RecipeModel[]>;
+  getLunches(): Promise<RecipeModel[]>;
 
   getBreakfasts(): Promise<RecipeModel[]>;
-
-  getIngredients(query?: string): Promise<string[]>;
 
   getDinners(): Promise<RecipeModel[]>;
 

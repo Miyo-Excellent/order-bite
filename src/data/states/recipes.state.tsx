@@ -1,13 +1,15 @@
 import { RecipeModel } from '@models/recipe.model.tsx';
 
 export interface RecipesState {
-  breakfast: RecipeModel[];
-  dinners: RecipeModel[];
   desserts: RecipeModel[];
+  breakfasts: RecipeModel[];
+  recipes: RecipeModel[];
+  dinners: RecipeModel[];
 }
 
 export const recipesInitialState: RecipesState = {
-  breakfast: [],
-  dinners: [],
-  desserts: []
+  desserts: [],
+  breakfasts: [],
+  recipes: [],
+  dinners: []
 };

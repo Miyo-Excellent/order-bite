@@ -80,6 +80,9 @@
       "@repositories/*": [
         "src/infrastructure/repositories/*"
       ],
+      "@layouts/*": [
+        "src/infrastructure/layouts/*"
+      ],
       "@services/*": [
         "src/infrastructure/services/*"
       ],

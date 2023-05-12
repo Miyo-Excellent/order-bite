@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { AppRouter } from '@navigation/appRouter';
-import { routes } from '@navigation/routes';
-import { mainStore } from '@stores/main.store.tsx';
+import { router } from '@navigation/router';
+import { mainStore } from '@stores/main.store';
 import '@styles/global.scss';
 
 let rootElement: HTMLElement | null = document.getElementById('root');
@@ -17,6 +17,6 @@ if (!rootElement) {
 
 ReactDOM.createRoot(rootElement).render(
   <Provider store={mainStore}>
-    <AppRouter routes={routes} />
+    <RouterProvider router={router} />
   </Provider>
 );

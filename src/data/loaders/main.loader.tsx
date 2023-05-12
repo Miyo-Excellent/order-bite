@@ -1,14 +1,36 @@
-import {
-  recipeLoader,
-  RecipeLoaderData
-} from '@loaders/recipes/recipe.loader.tsx';
+import { RecipeModel } from '@models/recipe.model';
+import { dessertsLoader } from '@loaders/recipes/desserts.loader';
+import { breakfastsLoader } from '@loaders/recipes/breakfasts.loader';
+import { recipesLoader } from '@loaders/recipes/recipes.loader';
+import { dinnersLoader } from '@loaders/recipes/dinners.loader';
 
 export interface MainLoaderData {
   recipes: RecipeLoaderData;
 }
 
-export const mainLoader = async (props: any): Promise<MainLoaderData> => {
-  const recipes: RecipeLoaderData = await recipeLoader(props);
+export interface RecipeLoaderData {
+  desserts: RecipeModel[];
+  breakfasts: RecipeModel[];
+  recipes: RecipeModel[];
+  dinners: RecipeModel[];
+}
 
-  return { recipes };
+export interface MainLoaderOptions {}
+
+export const mainLoader = async (
+  props: MainLoaderOptions = {}
+): Promise<MainLoaderData> => {
+  const desserts = await dessertsLoader(props);
+  const breakfasts = await breakfastsLoader(props);
+  const recipes = await recipesLoader(props);
+  const dinners = await dinnersLoader(props);
+
+  return {
+    recipes: {
+      desserts,
+      breakfasts,
+      recipes,
+      dinners,
+    }
+  } as MainLoaderData;
 };

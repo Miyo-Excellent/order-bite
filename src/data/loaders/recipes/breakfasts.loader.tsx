@@ -1,10 +1,12 @@
-import { EdamamApiRepository } from '@repositories/edamamApi.repository.tsx';
-import { EdamamApiService } from '@services/edamamApi.service.tsx';
 import { RecipeModel } from '@models/recipe.model.tsx';
+import { edamamApiService } from '@states/di.state';
 
-export const breakfastsLoader = async ({}): Promise<RecipeModel[]> => {
-  const service = new EdamamApiService();
-  const { getBreakfasts } = new EdamamApiRepository(service);
+export interface BreakfastsLoaderOptions {}
+
+export const breakfastsLoader = async ({}: BreakfastsLoaderOptions = {}): Promise<
+  RecipeModel[]
+> => {
+  const { getBreakfasts } = edamamApiService;
 
   return getBreakfasts();
 };
