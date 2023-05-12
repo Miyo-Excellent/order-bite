@@ -1,4 +1,3 @@
-import React from 'react';
 import loaderWebp from '@assets/loader.webp';
 import { SplashContainer } from '@components/splashContainer';
 

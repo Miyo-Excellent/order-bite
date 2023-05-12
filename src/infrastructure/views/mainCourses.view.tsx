@@ -1,4 +1,3 @@
-import React from 'react';
 export interface MainCoursesViewProps {}
 
 export const MainCoursesView = ({}: MainCoursesViewProps) => (

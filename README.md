@@ -1,5 +1,7 @@
 # Flutter With Persona
-[![Persona](https://e0.pxfuel.com/wallpapers/463/12/desktop-wallpaper-cafe-powerpoint-background-italy-cafe-menu.jpg)](https://google.com/) [![GitHub Project](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/Miyo-Excellent/order-bite) [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://google.com)
+[![Persona](https://e0.pxfuel.com/wallpapers/463/12/desktop-wallpaper-cafe-powerpoint-background-italy-cafe-menu.jpg)](https://google.com/)
+
+[![GitHub Project](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/Miyo-Excellent/order-bite) [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://google.com)
 
 # Virtual Restaurant Menu
 This project is a simple webpage that functions as a virtual menu for a restaurant. It allows diners to navigate the menu and place orders virtually. The goal is to provide a comfortable and efficient experience for both the customer and restaurant staff.

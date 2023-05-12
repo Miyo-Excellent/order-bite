@@ -38,8 +38,20 @@
       "@actions/*": [
         "src/data/actions/*"
       ],
-      "@reducers/*": [
-        "src/data/reducers/*"
+      "@loaders/*": [
+        "src/data/loaders/*"
+      ],
+      "@payloads/*": [
+        "src/data/payloads/*"
+      ],
+      "@actionTypes/*": [
+        "src/data/types/*"
+      ],
+      "@states/*": [
+        "src/data/states/*"
+      ],
+      "@slices/*": [
+        "src/data/slices/*"
       ],
       "@stores/*": [
         "src/data/stores/*"
@@ -55,6 +67,9 @@
       ],
       "@dataServices/*": [
         "src/domain/services/*"
+      ],
+      "@dataTypes/*": [
+        "src/domain/types/*"
       ],
       "@infrastructure/*": [
         "src/infrastructure/*"

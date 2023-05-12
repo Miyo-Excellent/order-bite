@@ -1,4 +1,3 @@
-import React from 'react';
 export interface ShareViewProps {}
 
 export const ShareView = ({}: ShareViewProps) => (

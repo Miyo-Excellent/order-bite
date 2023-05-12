@@ -1,13 +1,15 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
   RouteProps,
   Routes
 } from 'react-router-dom';
+import { BottomNavigationBar } from '@navigation/bottomNavigationBar.tsx';
 
-export interface AppRoute extends RouteProps {
+export interface AppRoute {
   name: string;
+  hidden: boolean;
+  props: RouteProps;
 }
 
 export interface AppRoutes {
@@ -22,11 +24,13 @@ export interface AppRouterProps {
 export const AppRouter = ({ routes }: AppRouterProps) => (
   <Router>
     {routes.map((route) => (
-      <Routes key={route.name} >
+      <Routes key={route.name}>
         {route.pages.map((page) => (
-          <Route key={page.name} {...page} />
+          <Route key={page.name} {...page.props} />
         ))}
       </Routes>
     ))}
+
+    <BottomNavigationBar routes={routes} />
   </Router>
 );
